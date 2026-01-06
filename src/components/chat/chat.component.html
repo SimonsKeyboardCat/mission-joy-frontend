@@ -1,0 +1,28 @@
+<div *ngIf="chat" class="container">
+    <div class="header">
+        <i class="bi bi-arrow-left" style="font-size: 1.5rem;" (click)="goToChatList()"></i>
+        <img src="{{ chat.image }}" alt="{{ chat.name }}" class="chat-image">
+        <div class="chat-title">
+            <h1 class="bold">{{ chat.name }}</h1>
+            <h3>{{ chat.job }}</h3>
+        </div>
+    </div>
+
+    <div class="chat">
+        <div class="message-list" *ngFor="let message of chat.messages">
+            <div class="organization" *ngIf="message.sender == 'organization'">
+                <p class="content">{{ message.content }}</p>
+                <h3 class="timestamp">{{ message.timestamp | date:'short' }}</h3>
+            </div>
+            <div class="user" *ngIf="message.sender == 'user'">
+                <p class="content">{{ message.content }}</p>
+                <h3 class="timestamp" style="color: rgb(212, 208, 208);">{{ message.timestamp | date:'short' }}</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="input-area">
+        <input class="input-message" type="text" placeholder="Type your message..." [(ngModel)]="newMessage" (keydown.enter)="sendMessage(chat.id, newMessage)">
+        <button class="btn button-submit" (click)="sendMessage(chat.id, newMessage)"><i class="bi bi-send" style="font-size: 1.2rem;"></i></button>
+    </div>
+</div>

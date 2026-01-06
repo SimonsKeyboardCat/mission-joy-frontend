@@ -1,0 +1,23 @@
+<section class="container">
+    <div class="header">
+        <h2>Missions List</h2>
+    </div>
+
+    <div class="mission-list">
+        <div class="mission-item" [ngClass]="{'completed': mission.completed}" *ngFor="let mission of missions" (click)="goToChatList(mission)">
+            <div class="mission-info">
+                <img src="{{ mission.image }}" alt="{{ mission.title }}" class="mission-image">
+                <div>
+                    <h2 class="mission-title bold">{{ mission.title }}</h2>
+                    <h3 class="mission-description">{{ mission.description }}</h3>
+                </div>
+            </div>
+            
+            <div class="mission-details">
+                <h3 class="mission-date black">{{ mission.date | date }}</h3>
+                <h3 class="mission-time black">{{ mission.duration }}</h3>
+                <h3 class="mission-location black">{{ mission.location }}</h3>
+            </div>
+        </div>
+    </div>
+</section>

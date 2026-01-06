@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+$success-green: rgb(46, 184, 115);
+$target-blue: rgb(38, 98, 217);
+$trophy-gold: rgb(245, 168, 61);
+$description-gray: rgb(139, 139, 139);
+$background-gray: rgb(43, 48, 59);
+$background-white: #f9f9f9;
+
+body {
+    font-family: 'Google Sans', sans-serif;
+    background-color: $background-white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 24px;
+}
+
+h2 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 12px;
+    color: $description-gray;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-header {
+    background-color: $background-white;
+}
+
+.success {
+    color: $success-green;
+}
+
+.target {
+    color: $target-blue;
+}   
+
+.trophy {
+    color: $trophy-gold;
+}
+
+.bold {
+    font-weight: bold;
+}

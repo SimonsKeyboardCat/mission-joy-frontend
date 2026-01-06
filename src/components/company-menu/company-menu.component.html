@@ -1,0 +1,38 @@
+<section class="container">
+    <div class="header">
+        <img src="{{ company.logo }}" alt="{{company.name}} Logo" class="company-logo">
+        <div>
+            <h1>Wellcome to, {{company.name}}</h1>
+            <h3>{{company.motto}}</h3>
+        </div>
+    </div>
+
+    <div class="statistics">
+        <div class="statistic-card">
+            <h2 class="bold">24</h2>
+            <h3>Active Missions</h3>
+        </div>
+        <div class="statistic-card">
+            <h2 class="bold">150</h2>
+            <h3>Volunteers Engaged</h3>
+        </div>
+        <div class="statistic-card">
+            <h2 class="bold">3200</h2>
+            <h3>Hours Contributed</h3>
+        </div>
+        <div class="statistic-card">
+            <h2 class="bold">45</h2>
+            <h3>Projects Completed</h3>
+        </div>
+    </div>
+
+    <div class="options">
+        <app-mission-list></app-mission-list>
+        
+        <div (click)="goToCreateMission()">
+            <div class="circle-success">
+                <i class="bi bi-plus-circle icon"></i>
+            </div>
+        </div>
+    </div>
+</section>

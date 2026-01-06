@@ -1,0 +1,149 @@
+@import '../../styles.scss';
+
+$transition-speed: 0.3s;
+$lift-distance: -8px;
+$shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+$shadow-idle: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.header {
+    text-align: center;
+}
+
+.stats-cards {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    width: 310px;
+    background-color: $background-white;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-small {
+    background-color: $background-white;
+    border-radius: 8px;
+    padding: 2px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-success {
+    border: 2px solid rgba($success-green, 0.6);
+    background-color: rgba($success-green, 0.12);
+}
+
+.card-target {
+    border: 2px solid rgba($target-blue, 0.6);
+    background-color: rgba($target-blue, 0.12);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stat-value {
+    font-size: 28px;
+}
+
+.achievements-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.card-trophy {
+    border: 2px solid rgba($trophy-gold, 0.6);
+    background-color: rgba($trophy-gold, 0.12);
+}
+
+.achievement-title {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.completion {
+    font-size: 10px;
+    color: $description-gray;
+}
+
+.activities-card {
+    background-color: rgba($background-gray, 0.05);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 295px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.activity-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.activity-group-reverse {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.activities-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.circle-target {
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+
+    background: linear-gradient(
+    to bottom right, 
+        rgba($success-green, 1) 20%, 
+        rgba($target-blue, 1) 100%
+    );
+
+    transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY($lift-distance); 
+        box-shadow: $shadow-hover; 
+    }
+}
+
+.icon {
+    color: $background-white;
+    position: relative;
+    left: 14px;
+    top: 4.5px
+}

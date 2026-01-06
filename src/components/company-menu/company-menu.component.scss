@@ -1,0 +1,66 @@
+@import '../../styles.scss';
+
+$transition-speed: 0.3s;
+$lift-distance: -8px;
+$shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+$shadow-idle: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.container {
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.company-logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    width: 100%;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.statistic-card {
+    background-color: $background-white;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: $shadow-idle;
+    transition: transform $transition-speed ease, 
+                box-shadow $transition-speed ease;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY($lift-distance); 
+        box-shadow: $shadow-hover; 
+    }
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 2rem;
+    color: $success-green;
+    cursor: pointer;
+}

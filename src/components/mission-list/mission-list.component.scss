@@ -1,0 +1,65 @@
+@import '../../styles.scss';
+
+$transition-speed: 0.3s;
+$lift-distance: -8px;
+$shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+$shadow-idle: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.container {
+    padding: 0;
+}
+
+.mission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mission-item {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $background-white;
+    border-radius: 10px;
+    box-shadow: $shadow-idle;
+    transition: transform $transition-speed ease, 
+                box-shadow $transition-speed ease;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY($lift-distance); 
+        box-shadow: $shadow-hover; 
+    }
+}
+
+.mission-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mission-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mission-details {
+    padding-left: 7px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.completed {
+    background-color: rgba($color: #479152, $alpha: 0.3);
+}
+
+.black {
+    font-size: 0.6rem;
+    color: black;
+}

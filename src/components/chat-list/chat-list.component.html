@@ -1,0 +1,20 @@
+<nav class="nav">
+    <div class="circle-target" (click)="goToChooser()">
+        <i class="bi bi-box2-heart icon" style="font-size: 2rem;"></i>
+    </div>
+</nav>
+<section class="container">
+    <div class="header">
+        <h1>Chats</h1>
+    </div>
+    <div class="chat-list">
+        <div class="chat-item" *ngFor="let chat of chats" (click)="openChat(chat)">
+            <img src="{{ chat.image }}" alt="{{ chat.name }}" class="chat-image">
+            <div class="chat-info">
+                <div class="chat-name bold">{{ chat.name }}</div>
+                <h3 class="chat-last-message">{{ chat.lastMessage }}</h3>
+            </div>
+            <div class="chat-time">{{ chat.timestamp | date:'shortTime' }}</div>
+        </div>
+    </div>
+</section>

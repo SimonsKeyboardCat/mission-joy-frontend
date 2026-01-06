@@ -1,0 +1,80 @@
+<nav>
+    <div class="circle-target" (click)="goToProfile()">
+        <i class="bi bi-person icon" style="font-size: 2rem;"></i>
+    </div>
+    <div class="circle-target" style="right: 80px;" (click)="goToChats()">
+        <i class="bi bi-chat icon" style="font-size: 2rem;"></i>
+    </div>
+</nav>
+<section *ngIf="cards.length > 0" class="container">
+    <div class="header">
+        <h1 class="bold">Choose Your Mission</h1>
+        <h3>Swipe right to volunteer, left to pass</h3>
+    </div>
+    <div class="card-container" 
+        (mousemove)="onDrag($event)" 
+        (touchmove)="onDrag($event)"
+        (mouseup)="endDrag()" 
+        (touchend)="endDrag()"
+        (mouseleave)="endDrag()">
+
+        <div *ngFor="let card of cards; let i = index; let isFirst = first" 
+            class="card"
+            [style.z-index]="cards.length - i"
+            [ngStyle]="getCardStyle(isFirst)"
+            (mousedown)="isFirst && startDrag($event)"
+            (touchstart)="isFirst && startDrag($event)">
+
+            <div class="card-content">
+                <div class="image-container">
+                    <div class="tag">
+                        <div class="tag-text">{{ card.tag }}</div>
+                    </div>
+                    
+                    <img [src]="'../../' + card.image" alt="{{ card.title }}" class="card-image">    
+                </div>
+                
+                <div class="informations">
+                    <div class="informations-main">
+                        <h3 class="mb-2">{{ card.company }}</h3>
+                        <h1 class="bold">{{card.title}}</h1>
+                        <h3>{{card.description}}</h3>
+                    </div>
+
+                    <div class="footer">
+                        <div class="footer-info">
+                            <i class="bi bi-clock success" style="font-size: 0.8rem;"></i>
+                            <div class="bold">{{card.duration}} on {{card.date}}</div>
+                        </div>
+                        <div class="footer-info">
+                            <i class="bi bi-geo-alt target" style="font-size: 0.8rem;"></i>
+                            <div class="bold">{{card.location}}</div>
+                        </div>
+                        <div class="footer-info">
+                            <i class="bi bi-people trophy" style="font-size: 0.8rem;"></i>
+                            <div class="bold">{{card.peopleNeeded}} spots left</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section *ngIf="cards.length === 0" class="container">
+    <div class="header">
+        <i class="bi bi-emoji-smile" style="font-size: 3rem; color: #28a745;"></i>
+        <h2 class="bold mb-2">All caught up</h2>
+        <h3>Check back later for more opportunities to make an impact!</h3>
+    </div>
+</section>
+
+<div class="popup" *ngIf="showMatchPopup">
+    <div>
+        <div class="match">
+            <i class="bi bi-heart-fill" style="font-size: 1rem; color: #dc3545;"></i>
+            <h2 class="bold">It's a Match!</h2>
+        </div>
+        <h3>Check your chats for more details</h3>
+    </div>
+</div>
