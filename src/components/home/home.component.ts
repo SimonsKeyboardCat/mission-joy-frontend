@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  goToChooser() {
-    this.router.navigate(['/chooser']);
+  goToCategoryChooser() {
+    this.router.navigate(['/category-chooser']);
   }
 
   goToCompanyMenu() {

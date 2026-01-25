@@ -1,4 +1,5 @@
 export interface RecentActivity {
+    id: number;
     title: string;
     organization: string;
     time: string;
@@ -6,6 +7,7 @@ export interface RecentActivity {
 }
 
 export interface Achievement {
+    id: number;
     title: string;
     icon: string;
 }

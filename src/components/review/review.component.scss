@@ -1,0 +1,235 @@
+@import '../../styles.scss';
+
+$transition-speed: 0.3s;
+$lift-distance: -8px;
+$shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+$shadow-idle: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.container {
+    padding: 0px;
+    height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #e6e2e2;
+}
+
+.header {
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid $description-gray;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: $background-white;
+}
+
+.chat-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat {
+    margin-top: 70px;
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.organization {
+    max-width: 80%;
+    padding: 10px;
+    background-color: $background-white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.user {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    align-self: flex-end;
+    background-color: rgba($target-blue, 0.9);
+    color: $background-white;
+}
+
+.input-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    gap: 10px;
+    background-color: $background-white;
+    border-top: 1px solid $description-gray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.button-submit {
+    background-color: $target-blue;
+    color: $background-white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($target-blue, 10%);
+    }
+}
+
+.input-message {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: rgba($target-blue, 0.9);
+        box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+    }
+
+    &::placeholder {
+        color: #999;
+        font-style: italic;
+    }
+}
+
+.activities-card {
+    background-color: rgba($background-gray, 0.05);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 295px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.activity-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.activity-group-reverse {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.activities-grid {
+    width: 360px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filled {
+    color: rgba(240, 196, 4, 0.637);
+}
+
+.button-submit {
+    width: 90%;
+    background-color: $success-green;
+    color: $background-white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+
+    background: linear-gradient(
+    to bottom right, 
+        rgba($success-green, 1) 30%, 
+        rgba($success-green, 0.2) 100%
+    );
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: $shadow-hover; 
+    }
+}
+
+.review-card {
+    background-color: $background-white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: $shadow-idle;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    gap: 10px;
+}
+
+.rating {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: rgba(240, 196, 4, 0.637);
+}
+
+.text-area {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+    min-height: 80px;
+
+    &:focus {
+        outline: none;
+        border-color: rgba($target-blue, 0.9);
+        box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+    }
+
+    &::placeholder {
+        color: #999;
+        font-style: italic;
+    }
+}

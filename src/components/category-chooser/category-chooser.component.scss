@@ -1,0 +1,113 @@
+@import '../../styles.scss';
+
+$transition-speed: 0.3s;
+$lift-distance: -8px;
+$shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+$shadow-idle: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.container {
+    height: 100vh;
+}
+
+.header {
+    text-align: center;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.double {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.card {
+    height: 100px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 8px;
+    box-shadow: $shadow-idle;
+
+    transition: transform $transition-speed ease, 
+                box-shadow $transition-speed ease;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY($lift-distance); 
+        box-shadow: $shadow-hover; 
+    }
+}
+
+.selected {
+    border: 2px solid $success-green;
+}
+
+.description {
+    font-size: 14px;
+    color: $description-gray;
+    margin: 0;
+}
+
+.circle-success {
+width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+
+    background: linear-gradient(
+        to bottom right, 
+        var(--target-color, blue) 50%, 
+        color-mix(in srgb, var(--target-color, blue), transparent 80%) 100%
+    );
+}
+
+.icon {
+    color: $background-white;
+    position: relative;
+    left: 14px;
+    top: 4.5px
+}
+
+.name {
+    font-size: 12px;
+    margin-top: 65px;
+}
+
+.icon2 {
+    color: $background-white;
+    position: relative;
+    left: 14px;
+    top: 7px
+}
+
+.button-submit {
+    width: 90%;
+    background-color: $success-green;
+    color: $background-white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+
+    background: linear-gradient(
+    to bottom right, 
+        rgba($success-green, 1) 30%, 
+        rgba($success-green, 0.2) 100%
+    );
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: $shadow-hover; 
+    }
+}

@@ -44,7 +44,7 @@
         </div>
 
         <div class="activities-grid">
-            <div class="card activities-card" *ngFor="let activity of recentActivities">
+            <div class="card activities-card" *ngFor="let activity of recentActivities" (click)="goToReview(activity)">
                 <div class="activity-header">
                     <i class="bi bi-clock success" style="font-size: 1.2rem;"></i>
 

@@ -1,0 +1,25 @@
+<section class="container">
+    <div class="header">
+        <h1>What ignites your passion?</h1>
+        <h3>Select all that resonate with you</h3>
+    </div>
+
+    <div class="options">
+        <div *ngFor="let category of categories" class="card" (click)="toggleCategorySelection(category)" [ngClass]="{'selected': category.isSelected}">
+            <div class="circle-success" [style.--target-color]="category.color">
+                <i class="{{category.icon}} icon2" style="font-size: 2rem;"></i>
+            </div>
+        
+            <div class="name">{{category.name}}</div>
+        </div>
+    </div>
+
+    <button [disabled]="!areAnyCategoriesSelected()" class="btn button-submit" type="submit" (click)="goToTimeChooser()">
+        <div *ngIf="areAnyCategoriesSelected(); else selectAtLeastOne">
+            Confirm selected categories
+        </div>
+        <ng-template #selectAtLeastOne>
+            Please select at least one category
+        </ng-template>
+    </button>
+</section>
